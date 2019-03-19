@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ma page</title>
+    <style>
+      input {
+        font-size: 25px;
+      }
+      div.article {
+        padding: 5px;
+        border: 1px solid black;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <input type="text" placeholder="Mon titre" autofocus>
+    <input type="text" placeholder="Mon paragraphe">
+
+    <div></div>
+    
+  </body>
+  <script>
+    let inputTitle = document.querySelector('input');
+    let inputParagraph = document.querySelector('input + input');
+
+    let myArticle = "";
+
+    inputTitle.onchange = function() {
+      myArticle = "<div class='article'><h1>" + inputTitle.value + "</h1>";
+    }
+
+    inputParagraph.onchange = function() {
+      myArticle += "<p>" + inputParagraph.value + "</p></div>";
+      document.querySelector('div').innerHTML +=  myArticle;
+    }
+  </script>
+</html>
